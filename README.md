@@ -22,13 +22,7 @@ The program tracks multiple mobile devices, computes their distance from USC, an
 ## **System Architecture**
 
 ```
-OwnTracks App (Phone)
-        ↓
-ThingsBoard Telemetry API
-        ↓
-Python Geofence Script
-        ↓
-Email Alerts (SMTP)
+OwnTracks App (Phone) ---> ThingsBoard Telemetry API ---> Python Geofence Script  --->  Email Alerts (SMTP)
 ```
 
 ---
@@ -51,14 +45,14 @@ pip install requests
 
 ## **How It Works**
 
-### 1. **OwnTracks → ThingsBoard**
+### 1. **OwnTracks ---> ThingsBoard**
 Each phone publishes GPS coordinates (`lat`, `lon`) to ThingsBoard using:
 
 ```
 POST /api/v1/<DEVICE_TOKEN>/telemetry
 ```
 
-### 2. **Python Script → ThingsBoard API**
+### 2. **Python Script ---> ThingsBoard API**
 The script polls telemetry every 10 seconds:
 
 ```
@@ -73,8 +67,8 @@ The script polls telemetry every 10 seconds:
 ### 4. **Email Alerts**
 Sends one‑time notifications when:
 
-- `inside → outside` → **Left USC**
-- `outside → inside` → **Entered USC**
+- `inside → outside` ---> **Left USC**
+- `outside → inside` ---> **Entered USC**
 
 ---
 
@@ -118,11 +112,11 @@ ALERT: name2 left USC zone!
 
 ## **Email Alert Examples**
 
-**Subject:** name1 left USC campus  
-**Body:** name1 is xxx meters away from USC campus.
+**Subject:** Neil left USC campus
+**Body:** Neil is 1334.62 meters away from USC campus.
 
-**Subject:** Neil entered USC campus  
-**Body:** Neil is now inside the USC zone (xxx m).
+**Subject:** Aadarsh entered USC campus  
+**Body:** Aadarsh is now inside the USC zone (181.76 m).
 
 ---
 
@@ -130,7 +124,7 @@ ALERT: name2 left USC zone!
 
 ```
 .
-├── main.py     # Main Python script
+├── main.py               # Main Python script
 ├── README.md             # Project documentation
 └── requirements.txt      # Dependencies (optional)
 ```
