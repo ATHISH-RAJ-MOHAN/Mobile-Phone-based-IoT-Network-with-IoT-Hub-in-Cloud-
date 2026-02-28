@@ -29,7 +29,7 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 EMAIL_USER = "athishrajmohan3@gmail.com"
 EMAIL_PASS = "klwb fqqc gbdc qmky"
-EMAIL_TO = "athishrajmohan3@gmail.com"
+EMAIL_TO = ["athishrajmohan3@gmail.com", "aadarshs@usc.edu", "neilbai@usc.edu"]
 
 # 4. Global token management
 _token = None
@@ -74,15 +74,17 @@ def send_email_alert(device_name, dist, event_type):
         subject = f"{device_name} entered USC campus"
         body = f"{device_name} is now inside the USC zone ({dist:.2f} m)."
 
-    msg = MIMEText(body)
-    msg["Subject"] = subject
-    msg["From"] = EMAIL_USER
-    msg["To"] = EMAIL_TO
+    for email in EMAIL_TO:
+        msg = MIMEText(body)
+        msg["Subject"] = subject
+        msg["From"] = EMAIL_USER
+        msg["To"] = email
+            
 
-    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-        server.starttls()
-        server.login(EMAIL_USER, EMAIL_PASS)
-        server.sendmail(EMAIL_USER, EMAIL_TO, msg.as_string())
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(EMAIL_USER, EMAIL_PASS)
+            server.sendmail(EMAIL_USER, email, msg.as_string())
 
 # 6. HAVERSINE DISTANCE FUNCTION
 def distance_m(lat1, lon1, lat2, lon2):
