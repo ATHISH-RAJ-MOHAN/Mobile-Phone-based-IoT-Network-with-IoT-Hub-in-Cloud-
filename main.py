@@ -6,15 +6,15 @@ from email.mime.text import MIMEText
 from datetime import datetime, timedelta
 
 # 1. THINGSBOARD SETTINGS
-TB_URL = "http://54.193.225.222:8080"
+TB_URL = "http://<your-thingsboard-ip>:8080"
 USERNAME = "tenant@thingsboard.org"
 PASSWORD = "tenant"
 
 # Devices to monitor
 DEVICES = {
-    "Athish": "d71d7990-135f-11f1-ab0c-751d37480f88",
-    "Neil": "0f955150-1363-11f1-ab0c-751d37480f88",
-    "Aadarsh": "3bfe2470-1362-11f1-ab0c-751d37480f88"
+    "name1": "<device-id1>",
+    "name2": "<device-id2>",
+    "name3": "<device-id3>"
 }
 
 # 2. USC CAMPUS GEOFENCE SETTINGS
@@ -27,9 +27,9 @@ SEND_EMAIL = True
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-EMAIL_USER = "athishrajmohan3@gmail.com"
-EMAIL_PASS = "klwb fqqc gbdc qmky"
-EMAIL_TO = ["athishrajmohan3@gmail.com", "aadarshs@usc.edu", "neilbai@usc.edu"]
+EMAIL_USER = "abc@gmail.com" # The senders email id
+EMAIL_PASS = "abcd efgh ijkl mnop" # The senders app password for the above email id
+EMAIL_TO = ["name1@gmail.com", "name2@gmail.com", "name3@gmail.com"]
 
 # 4. Global token management
 _token = None
