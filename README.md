@@ -78,7 +78,6 @@ Update these fields in the script:
 
 ```python
 TB_URL = "http://<your-thingsboard-ip>:8080"
-JWT_TOKEN = "<your-jwt-token>"
 
 DEVICES = {
     "name1": "<device-id1>",
@@ -112,11 +111,13 @@ ALERT: name2 left USC zone!
 
 ## **Email Alert Examples**
 
-**Subject:** Neil left USC campus
-**Body:** Neil is 1334.62 meters away from USC campus.
+
 
 **Subject:** Aadarsh entered USC campus  
 **Body:** Aadarsh is now inside the USC zone (181.76 m).
+
+**Subject:** Neil left USC campus
+**Body:** Neil is 1334.62 meters away from USC campus.
 
 ---
 
@@ -126,7 +127,6 @@ ALERT: name2 left USC zone!
 .
 ├── main.py               # Main Python script
 ├── README.md             # Project documentation
-└── requirements.txt      # Dependencies (optional)
 ```
 
 ---
