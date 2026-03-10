@@ -1,6 +1,6 @@
 # **USC Campus Geofence Alert System**
 
-A real‑time geolocation monitoring system built using **ThingsBoard**, **OwnTracks**, and a custom **Python geofence engine**.  
+A real‑time geolocation monitoring system built using **AWS Linux Instance**, **ThingsBoard**, **OwnTracks**, and a custom **Python geofence engine**.  
 The program tracks multiple mobile devices, computes their distance from USC, and sends **email alerts** when users **enter** or **leave** the campus geofence.
 
 ---
